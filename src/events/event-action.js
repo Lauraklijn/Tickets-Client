@@ -1,7 +1,24 @@
 import axios from "axios";
 
-export const ALL_EVENTS = "ALL_EVENTS";
+export const EVENTS_FETCHED = "EVENTS_FETCHED";
 export const EVENT_CREATE_SUCCESS = "EVENT_CREATE_SUCCESS";
+
+function eventsFetched(events) {
+  return {
+    type: EVENTS_FETCHED,
+    payload: {
+      events: events
+    }
+  };
+}
+
+export const loadEvents = () => (dispatch, getState) => {
+  //if (getState().events.length !== 0) return;
+
+  axios.get("http://localhost:4000/event").then(function(response) {
+    dispatch(eventsFetched(response.data));
+  });
+};
 
 function createEventSuccess(event) {
   return {

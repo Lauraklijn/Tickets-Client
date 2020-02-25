@@ -4,13 +4,16 @@
 // function Home(props) {
 //   return (
 //     <div>
-//       {props.events.map(event => (
+//       {this.props.events.map(event => (
 //         <h1>{event.name}</h1>
 //       ))}
 //     </div>
 //   );
 // }
 
-// const mapStateToProps = state => ({ events: state.events });
+// const mapStateToProps = state => {
+//   console.log("reduxState", state.eventData);
+//   return { eventData: state.eventData };
+// };
 
 // export default connect(mapStateToProps)(Home);

@@ -32,8 +32,8 @@ class CreateEventContainer extends Component {
   };
 
   render() {
-    console.log("what is events", this.state);
-    // const eventList = this.state.event.map(event => {
+    // console.log("what is events", this.state.events);
+    // const eventList = this.state.events.map(event => {
     //   return <div key={event.id}>{event.name}</div>;
     // });
 
@@ -44,6 +44,7 @@ class CreateEventContainer extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
+
         {/* <h1>{eventList}</h1> */}
       </div>
     );
