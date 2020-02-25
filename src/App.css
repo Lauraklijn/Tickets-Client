@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.homepage {
+  background-image: url(https://images.unsplash.com/photo-1513265472937-50d3e680377c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80);
+}

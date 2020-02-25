@@ -69,4 +69,11 @@ class SignupForm extends Component {
   }
 }
 
+// const mapStateToProps = state => {
+//   console.log("STATE IN MSTP", state);
+//   return {
+//     userCreated: state.userdata.token
+//   };
+// };
+
 export default connect()(SignupForm);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../user/user-action";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
@@ -68,5 +69,11 @@ class Login extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => {
+//   return {
+//     userLoggedIn: state.user.token !== null
+//   };
+// };
 
 export default connect()(Login);

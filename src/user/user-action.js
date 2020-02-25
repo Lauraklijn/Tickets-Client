@@ -33,17 +33,16 @@ export function login(email, password, history) {
         email,
         password
       })
-      .then(response => {
-        console.log(response.data);
-        history.push("/eventpage"); //when logged in, it goes to the roompage
-        dispatch(loginAction(response.data.token, response.data.email));
-      });
-  };
-}
-
-function loginAction(token, email) {
-  return {
-    type: USER_LOGIN,
-    payload: { token, email }
+      .then(({ data: { token } }) => {
+        dispatch({
+          type: "session/LOGIN",
+          payload: {
+            token
+            //email weggehaald
+          }
+        });
+        history.push("/");
+      })
+      .catch(error => console.error(error));
   };
 }

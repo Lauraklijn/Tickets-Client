@@ -1,7 +1,24 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class EventPage extends Component {
+import CreateEvent from "../components/Events/CreateEvent";
+
+class EventPage extends Component {
   render() {
-    return <div>EVENTS</div>;
+    return (
+      <div>
+        <h1>EVENT PAGE</h1>
+        <h2>Welcome! FIND EVENTS AND BUY/SELL TICKETS</h2>
+        <p>You have to be Logged in to add a new ticket or comment</p>
+        <p>
+          To enter the website, please first Signup! >Already an account? Please
+          login
+        </p>
+
+        <CreateEvent />
+      </div>
+    );
   }
 }
+
+export default connect()(EventPage);
