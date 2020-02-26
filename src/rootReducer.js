@@ -6,5 +6,5 @@ import ticketReducer from "../src/tickets/ticket-reducer";
 export default combineReducers({
   userData: userReducer,
   eventData: eventReducer,
-  ticketReducer: ticketReducer
+  ticketData: ticketReducer
 });

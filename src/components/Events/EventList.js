@@ -16,7 +16,9 @@ export default function EventList(props) {
               <Card.Text>
                 {event.description} {event.date}
               </Card.Text>
-              <Button variant="primary">Find Tickets</Button>
+              <a href={`http://localhost:3000/event/${event.id}`}>
+                <Button variant="primary">Find Tickets</Button>
+              </a>
             </Card.Body>
           </Card>
         );

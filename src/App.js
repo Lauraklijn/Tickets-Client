@@ -6,8 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SignupForm from "../src/components/Signup";
 import EventPage from "../src/components/EventPage";
 import Login from "../src/components/Login";
-import TicketPage from "./components/TicketPage";
-import EventDetailsContainer from "./components/Events/EventDetailsContainer";
+import TicketPage from "./components/Tickets/TicketPage";
+import TicketListContainer from "./components/Tickets/TicketListContainer";
 //import Home from "../src/components/Home";
 
 class App extends Component {
@@ -30,7 +30,8 @@ class App extends Component {
           <Route exact path="/" component={EventPage} />
           <Route exact path="/signup" component={SignupForm} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/tickets/:id" component={EventDetailsContainer} />
+          <Route exact path="/event/:id" component={TicketListContainer} />
+          <Route exact path="/tickets/:id" component={TicketPage} />
         </Router>
       </div>
     );

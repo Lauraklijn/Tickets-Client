@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const EVENTS_FETCHED = "EVENTS_FETCHED";
 export const EVENT_CREATE_SUCCESS = "EVENT_CREATE_SUCCESS";
+export const FETCH_EVENT_SUCCESS = "FETCH_EVENT_SUCCESS";
 
 function eventsFetched(events) {
   return {
@@ -44,6 +45,22 @@ export const createEvent = (name, description, imageUrl, date) => {
     });
     dispatch(createEventSuccess(response));
   };
+};
+
+function fetchEventSucces(event) {
+  return {
+    type: FETCH_EVENT_SUCCESS,
+    payload: {
+      event: event
+    }
+  };
+}
+export const loadEvent = id => (dispatch, getState) => {
+  const state = getState().event;
+  if (state && state.id === id) return;
+  axios.get("http://localhost:4000/event/{id}").then(function(response) {
+    dispatch(fetchEventSucces(response.data));
+  });
 };
 
 /*
