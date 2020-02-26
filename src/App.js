@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SignupForm from "../src/components/Signup";
 import EventPage from "../src/components/EventPage";
 import Login from "../src/components/Login";
+import TicketPage from "./components/TicketPage";
+import EventDetailsContainer from "./components/Events/EventDetailsContainer";
 //import Home from "../src/components/Home";
 
 class App extends Component {
@@ -28,6 +30,7 @@ class App extends Component {
           <Route exact path="/" component={EventPage} />
           <Route exact path="/signup" component={SignupForm} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/tickets/:id" component={EventDetailsContainer} />
         </Router>
       </div>
     );

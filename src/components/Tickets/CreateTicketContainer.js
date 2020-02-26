@@ -1,0 +1,53 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import TicketForm from "./TicketForm";
+import { createTicket } from "../../tickets/ticket-action";
+//import { Link } from "react-router-dom";
+
+class CreateTicketContainer extends Component {
+  state = {
+    name: "",
+    author: "",
+    description: "",
+    image: "",
+    price: ""
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+    this.props.dispatch(
+      createTicket(
+        this.state.name,
+        this.state.author,
+        this.state.description,
+        this.state.image,
+        this.state.price
+      )
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        <TicketForm
+          values={this.state}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
+      </div>
+    );
+  }
+}
+
+// const mapStateToProps = state => ({
+//   events: state.events
+// });
+
+//export default connect(null, { createTicket })(CreateTicketContainer);
+
+export default connect()(CreateTicketContainer);
