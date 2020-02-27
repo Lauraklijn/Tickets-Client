@@ -14,12 +14,12 @@ function eventsFetched(events) {
 }
 
 export const loadEvents = () => (dispatch, getState) => {
-  //if (getState().events.length !== 0) return;
-
-  axios.get("http://localhost:4000/event").then(function(response) {
+  axios.get("http://localhost:5050/event").then(function(response) {
     dispatch(eventsFetched(response.data));
   });
 };
+
+// ------ Create Events --------------
 
 function createEventSuccess(event) {
   return {
@@ -30,12 +30,17 @@ function createEventSuccess(event) {
   };
 }
 
+// ---------- AUTH (Is not working yet) ------------- (Connection error), Still working on it
+
 export const createEvent = (name, description, imageUrl, date) => {
-  return function(dispatch, getState) {
-    console.log(name, description, imageUrl, date);
-    const response = axios({
+  return async function(dispatch, getState) {
+    console.log("what is token", getState());
+    // const token = getState().userData.token;
+    console.log("WHAT IS??", name, description, imageUrl, date);
+    const response = await axios({
       method: "POST",
-      url: "http://localhost:4000/event",
+      url: "http://localhost:5050/event",
+      // headers: { autorization: `Bearer ${token}` },
       data: {
         name,
         description,
@@ -46,6 +51,8 @@ export const createEvent = (name, description, imageUrl, date) => {
     dispatch(createEventSuccess(response));
   };
 };
+
+// ONE event, niet nodig
 
 function fetchEventSucces(event) {
   return {
@@ -58,32 +65,7 @@ function fetchEventSucces(event) {
 export const loadEvent = id => (dispatch, getState) => {
   const state = getState().event;
   if (state && state.id === id) return;
-  axios.get("http://localhost:4000/event/{id}").then(function(response) {
+  axios.get("http://localhost:5050/event/{id}").then(function(response) {
     dispatch(fetchEventSucces(response.data));
   });
 };
-
-/*
-export const createEvent = (name, description, imageUrl, date) => {
-  return async function(dispatch, getState) {
-    //const token = getState().user.token;
-
-    // console.log(name, description, imageUrl, date);
-    // dispatch({ type: "TESTING" });
-
-    const response = await axios({
-      method: "POST",
-      url: "http://localhost:4000/event",
-      // headers: { authorization: `Bearer ${token}` },
-      data: {
-        name,
-        description,
-        imageUrl,
-        date
-      }
-    });
-
-    console.log(response);
-    dispatch(createEventSuccess(response.data));
-  };
-};*/

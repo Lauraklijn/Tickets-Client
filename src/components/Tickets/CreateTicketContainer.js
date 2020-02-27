@@ -19,7 +19,7 @@ class CreateTicketContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+    console.log("WHATTT IS THE state", this.state);
     this.props.dispatch(
       createTicket(
         this.state.name,
@@ -43,11 +43,5 @@ class CreateTicketContainer extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   events: state.events
-// });
-
-//export default connect(null, { createTicket })(CreateTicketContainer);
 
 export default connect()(CreateTicketContainer);

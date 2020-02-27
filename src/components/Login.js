@@ -13,12 +13,12 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("IM submitting!", this.state);
+    console.log("Im loginInn!", this.state);
     if (!this.state.email || !this.state.password) {
       alert("Please, fill in e-mail and password to login");
       return;
     }
-    console.log("WHAT IS THIS PROPS DISPATCH", this.props.dispatch);
+    console.log("What is props.dispatch?", this.props.dispatch);
     this.props.dispatch(
       login(this.state.email, this.state.password, this.props.history)
     );

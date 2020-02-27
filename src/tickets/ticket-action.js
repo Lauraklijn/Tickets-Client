@@ -14,9 +14,7 @@ function ticketFetched(tickets) {
 }
 
 export const loadTickets = () => (dispatch, getState) => {
-  //if (getState().events.length !== 0) return;
-
-  axios.get("http://localhost:4000/tickets").then(function(response) {
+  axios.get("http://localhost:5050/tickets").then(function(response) {
     dispatch(ticketFetched(response.data));
   });
 };
@@ -30,12 +28,13 @@ function createTicketSucces(ticket) {
   };
 }
 
+// ------------Create Ticket-----------------------
+
 export const createTicket = (name, author, description, image, price) => {
   return function(dispatch, getState) {
-    console.log(name, author, description, image, price);
     const response = axios({
       method: "POST",
-      url: "http://localhost:4000/tickets",
+      url: "http://localhost:5050/tickets",
       data: {
         name,
         author,
@@ -48,6 +47,8 @@ export const createTicket = (name, author, description, image, price) => {
   };
 };
 
+// To get one ticket info
+
 function GotTicketDetails(ticket) {
   return {
     type: GOT_TICKET_DETAILS,
@@ -58,7 +59,7 @@ function GotTicketDetails(ticket) {
 }
 
 export const TicketDetails = id => (dispatch, getState) => {
-  axios.get(`http://localhost:4000/tickets/${id}`).then(function(response) {
+  axios.get(`http://localhost:5050/tickets/${id}`).then(function(response) {
     dispatch(GotTicketDetails(response.data));
   });
 };

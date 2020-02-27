@@ -1,7 +1,7 @@
 import React from "react";
 
 function TicketList(props) {
-  //if (!props.ticket) return "Loading";
+  console.log("what is props", props);
 
   return (
     <div>
@@ -21,24 +21,5 @@ function TicketList(props) {
     </div>
   );
 }
-
-// function EventDetails(props) {
-//   if (!props.event) return "Loading";
-
-//   return (
-//     <div>
-//       {props.event}
-//       <ul>
-//         {props.event.tickets.map(ticket => {
-//           return (
-//             <li key={ticket.id}>
-//               {ticket.name} : {ticket.description}
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>
-//   );
-// }
 
 export default TicketList;

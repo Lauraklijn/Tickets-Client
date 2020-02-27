@@ -3,20 +3,21 @@ import {
   TICKET_FETCHED,
   GOT_TICKET_DETAILS
 } from "../tickets/ticket-action";
-//import { FETCH_EVENT_SUCCESS } from "../events/event-action";
 
 const initialState = [];
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    // case FETCH_EVENT_SUCCESS:
-    //   return [...action.payload.event];
     case TICKET_FETCHED:
       return [...state, ...action.payload.tickets];
     case TICKET_CREATE_SUCCESS:
+      console.log("what state, action, payload? ticket_create", ...state, [
+        ...state,
+        action.payload
+      ]);
       return [...state, [...state, action.payload]];
     case GOT_TICKET_DETAILS:
-      console.log("what is action.payload?", action.payload);
+      console.log("what is action.payload?", action.payload.ticket);
       return action.payload.ticket;
 
     default:

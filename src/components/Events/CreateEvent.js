@@ -27,8 +27,6 @@ class CreateEventContainer extends Component {
         this.state.date
       )
     );
-
-    // this.setState({ name: "", description: "", imageUrl: "", date: "" });
   };
 
   render() {
@@ -50,11 +48,5 @@ class CreateEventContainer extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   events: state.events
-// });
-
-//export default connect(null, { createEvent })(CreateEventContainer);
 
 export default connect()(CreateEventContainer);

@@ -12,7 +12,7 @@ class SignupForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("IM submitting!", this.state);
+    console.log("Im submitting signup", this.state);
     if (!this.state.email || !this.state.password) {
       alert("Pleas enter your e-mail and passoword");
       return;
@@ -69,11 +69,11 @@ class SignupForm extends Component {
   }
 }
 
+export default connect()(SignupForm);
+
 // const mapStateToProps = state => {
-//   console.log("STATE IN MSTP", state);
+//   console.log("State for signup", state);
 //   return {
 //     userCreated: state.userdata.token
 //   };
 // };
-
-export default connect()(SignupForm);

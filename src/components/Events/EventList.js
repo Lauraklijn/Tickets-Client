@@ -3,8 +3,6 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export default function EventList(props) {
-  //if (!props.events) return "Loading";
-
   return (
     <div>
       {props.events.map(event => {
@@ -28,9 +26,4 @@ export default function EventList(props) {
 }
 
 // Where to put key?
-
-// <li key={event.id}>
-// {" "}
-// Name:  Description: Image
-// {event.imageUrl} Date:
-// </li>
+// <li key={event.id}> </li>

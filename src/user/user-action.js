@@ -7,7 +7,7 @@ export function signUp(email, password, history) {
   return function(dispatch, getState) {
     console.log(email, password);
     return axios
-      .post("http://localhost:4000/signup", {
+      .post("http://localhost:5050/signup", {
         email,
         password
       })
@@ -29,7 +29,7 @@ export function login(email, password, history) {
   return function(dispatch, getState) {
     console.log(email, password);
     return axios
-      .post("http://localhost:4000/login", {
+      .post("http://localhost:5050/login", {
         email,
         password
       })
@@ -41,7 +41,7 @@ export function login(email, password, history) {
             //email weggehaald
           }
         });
-        history.push("/");
+        history.push("/"); // Ze door naar EventPage
       })
       .catch(error => console.error(error));
   };
