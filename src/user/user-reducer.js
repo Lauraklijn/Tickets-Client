@@ -1,5 +1,5 @@
-import { USER_LOGIN } from "../user/user-action";
 import { USER_CREATED } from "../user/user-action";
+import { USER_LOGIN_SUCESS } from "../user/user-action";
 
 const initialState = {
   userCreated: false,
@@ -14,7 +14,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         userCreated: true
       };
-    case USER_LOGIN:
+    case USER_LOGIN_SUCESS:
       return {
         ...state,
         jwt: action.payload.token,

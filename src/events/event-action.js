@@ -35,12 +35,12 @@ function createEventSuccess(event) {
 export const createEvent = (name, description, imageUrl, date) => {
   return async function(dispatch, getState) {
     console.log("what is token", getState());
-    // const token = getState().userData.token;
+    const token = getState().userData.token;
     console.log("WHAT IS??", name, description, imageUrl, date);
     const response = await axios({
       method: "POST",
       url: "http://localhost:5050/event",
-      // headers: { autorization: `Bearer ${token}` },
+      headers: { autorization: `Bearer ${token}` },
       data: {
         name,
         description,

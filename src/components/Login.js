@@ -70,10 +70,11 @@ class Login extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     userLoggedIn: state.user.token !== null
-//   };
-// };
+const mapStateToProps = state => {
+  console.log("what is state", state);
+  return {
+    userLoggedIn: state.userData.token !== null
+  };
+};
 
-export default connect()(Login);
+export default connect(mapStateToProps)(Login);

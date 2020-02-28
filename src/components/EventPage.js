@@ -20,6 +20,7 @@ class EventPage extends Component {
         <CreateEvent />
         <p>CREATE TICKETS</p>
         <CreateTicketContainer />
+
         <EventListContainer />
       </div>
     );

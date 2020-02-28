@@ -1,6 +1,7 @@
 import React from "react";
 import { TicketDetails } from "../../tickets/ticket-action";
 import { connect } from "react-redux";
+//import CreateTicketContainer from "../../components/Tickets/CreateTicketContainer";
 
 class TicketPage extends React.Component {
   componentDidMount() {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const USER_CREATED = "user/SIGNUP";
-export const USER_LOGIN = "user/LOGIN";
+export const USER_CREATED = "USER_CREATED";
+export const USER_LOGIN_SUCESS = "USER_LOGIN_SUCCES";
 
 export function signUp(email, password, history) {
   return function(dispatch, getState) {
@@ -24,25 +24,25 @@ function signUpSucces() {
 }
 
 // LOGIN_______________________________________
+function loginSuccess(token) {
+  return {
+    type: USER_LOGIN_SUCESS,
+    payload: { token: token }
+  };
+}
 
 export function login(email, password, history) {
-  return function(dispatch, getState) {
+  return async function(dispatch, getState) {
     console.log(email, password);
-    return axios
+    await axios
       .post("http://localhost:5050/login", {
         email,
         password
       })
-      .then(({ data: { token } }) => {
-        dispatch({
-          type: "session/LOGIN",
-          payload: {
-            token
-            //email weggehaald
-          }
-        });
-        history.push("/"); // Ze door naar EventPage
-      })
-      .catch(error => console.error(error));
+      .then(response => {
+        history.push("/");
+
+        dispatch(loginSuccess(response.data.token));
+      });
   };
 }
