@@ -15,7 +15,7 @@ export default (state = initialState, action = {}) => {
         ...state,
         action.payload
       ]);
-      return [...state, [...state, action.payload]];
+      return [...state, [...state, action.payload.ticket]];
     case GOT_TICKET_DETAILS:
       console.log("what is action.payload?", action.payload.ticket);
       return action.payload.ticket;

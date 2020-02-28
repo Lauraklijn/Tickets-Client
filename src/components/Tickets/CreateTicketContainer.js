@@ -32,7 +32,7 @@ class CreateTicketContainer extends Component {
   };
 
   render() {
-    console.log("UserID", this.props.userId);
+    console.log("UserID", this.props.userId.userData);
     return (
       <div>
         <TicketForm
