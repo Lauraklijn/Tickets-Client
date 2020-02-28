@@ -32,6 +32,7 @@ class CreateTicketContainer extends Component {
   };
 
   render() {
+    console.log("UserID", this.props.userId);
     return (
       <div>
         <TicketForm
@@ -44,4 +45,10 @@ class CreateTicketContainer extends Component {
   }
 }
 
-export default connect()(CreateTicketContainer);
+function mapStateToProps(state) {
+  return {
+    userId: state
+  };
+}
+
+export default connect(mapStateToProps)(CreateTicketContainer);

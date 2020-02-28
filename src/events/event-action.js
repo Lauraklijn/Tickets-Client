@@ -33,14 +33,16 @@ function createEventSuccess(event) {
 // ---------- AUTH (Is not working yet) ------------- (Connection error), Still working on it
 
 export const createEvent = (name, description, imageUrl, date) => {
+  //token(argument)
   return async function(dispatch, getState) {
     console.log("what is token", getState());
-    const token = getState().userData.token;
-    console.log("WHAT IS??", name, description, imageUrl, date);
+
+    const token = getState().userData.jwt;
+    console.log("WHAT IS TOKEN??", token);
     const response = await axios({
       method: "POST",
       url: "http://localhost:5050/event",
-      headers: { autorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token.token}` },
       data: {
         name,
         description,
@@ -48,7 +50,7 @@ export const createEvent = (name, description, imageUrl, date) => {
         date
       }
     });
-    dispatch(createEventSuccess(response));
+    dispatch(createEventSuccess(response.data));
   };
 };
 
@@ -66,6 +68,6 @@ export const loadEvent = id => (dispatch, getState) => {
   const state = getState().event;
   if (state && state.id === id) return;
   axios.get("http://localhost:5050/event/{id}").then(function(response) {
-    dispatch(fetchEventSucces(response.data));
+    dispatch(fetchEventSucces(response));
   });
 };

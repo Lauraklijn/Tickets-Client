@@ -11,11 +11,7 @@ class EventPage extends Component {
       <div>
         <h1>EVENT PAGE</h1>
         <h2>Welcome! FIND EVENTS AND BUY/SELL TICKETS</h2>
-        <p>You have to be Logged in to add a new ticket or comment</p>
-        <p>
-          To enter the website, please first Signup! >Already an account? Please
-          login
-        </p>
+
         <p>Create EVENT</p>
         <CreateEvent />
         <p>CREATE TICKETS</p>

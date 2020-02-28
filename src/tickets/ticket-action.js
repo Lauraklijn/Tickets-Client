@@ -32,9 +32,12 @@ function createTicketSucces(ticket) {
 
 export const createTicket = (name, author, description, image, price) => {
   return function(dispatch, getState) {
+    const token = getState().userData.jwt;
+    console.log("WHAT IS TOKEN in create event??", token);
     const response = axios({
       method: "POST",
       url: "http://localhost:5050/tickets",
+      headers: { Authorization: `Bearer ${token}` },
       data: {
         name,
         author,
@@ -43,7 +46,7 @@ export const createTicket = (name, author, description, image, price) => {
         price
       }
     });
-    dispatch(createTicketSucces(response));
+    dispatch(createTicketSucces(response.data));
   };
 };
 

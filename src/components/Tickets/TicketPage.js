@@ -16,8 +16,9 @@ class TicketPage extends React.Component {
         <li> Name: {this.props.ticket.name} </li>
         <li> Author: {this.props.ticket.author}</li>
         <li> Description: {this.props.ticket.description}</li>
-        <li> EURO: {this.props.ticket.price} </li>
+        <li> € {this.props.ticket.price} </li>
         <li> Image: {this.props.ticket.image} </li>
+        <li> Risk:{this.props.ticket.totalRisk}</li>
       </div>
     );
   }

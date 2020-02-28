@@ -25,6 +25,7 @@ class CreateEventContainer extends Component {
         this.state.description,
         this.state.imageUrl,
         this.state.date
+        //this.props.user.token
       )
     );
   };
@@ -48,5 +49,7 @@ class CreateEventContainer extends Component {
     );
   }
 }
+
+//Maptodispatch (auth/token)
 
 export default connect()(CreateEventContainer);

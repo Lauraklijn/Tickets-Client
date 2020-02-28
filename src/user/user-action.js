@@ -42,7 +42,7 @@ export function login(email, password, history) {
       .then(response => {
         history.push("/");
 
-        dispatch(loginSuccess(response.data.token));
+        dispatch(loginSuccess(response.data));
       });
   };
 }
