@@ -15,6 +15,9 @@ class TicketListContainer extends React.Component {
     image: "",
     price: ""
   };
+
+  eventId = parseInt(this.props.location.pathname.split("/")[2]);
+
   componentDidMount() {
     console.log("What is loadTickets?", loadTickets);
     this.props.loadTickets();
@@ -39,6 +42,7 @@ class TicketListContainer extends React.Component {
       this.state.price,
       eventId
     );
+    //window.location.reload();
   };
 
   render() {
@@ -50,7 +54,7 @@ class TicketListContainer extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        <TicketList tickets={this.props.tickets} />;
+        <TicketList tickets={this.props.tickets} eventId={this.eventId} />;
       </div>
     );
   }

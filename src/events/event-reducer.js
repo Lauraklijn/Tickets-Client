@@ -6,7 +6,7 @@ const initialState = [];
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case EVENTS_FETCHED:
-      return [...state, ...action.payload.events];
+      return [...action.payload.events];
 
     case EVENT_CREATE_SUCCESS:
       return [...state, action.payload.event];

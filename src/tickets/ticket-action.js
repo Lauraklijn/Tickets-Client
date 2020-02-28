@@ -37,27 +37,27 @@ export const createTicket = (
   image,
   price,
   eventId
-) => {
-  return function(dispatch, getState) {
-    const token = getState().userData.jwt;
-    console.log("WHAT IS TOKEN in create event??", token);
-    console.log("checking action ", eventId);
+) => async (dispatch, getState) => {
+  const token = getState().userData.jwt;
+  console.log("WHAT IS TOKEN in create event??", token);
+  console.log("checking action ", eventId);
 
-    const response = axios({
-      method: "POST",
-      url: "http://localhost:5050/tickets",
-      headers: { Authorization: `Bearer ${token.token}` },
-      data: {
-        name,
-        author,
-        description,
-        image,
-        price,
-        eventId
-      }
-    });
-    dispatch(createTicketSucces(response.data));
-  };
+  const response = await axios({
+    method: "POST",
+    url: "http://localhost:5050/tickets",
+    headers: { Authorization: `Bearer ${token.token}` },
+    data: {
+      name,
+      author,
+      description,
+      image,
+      price,
+      eventId
+    }
+  });
+  console.log("check ticket resp", response.data);
+
+  dispatch(createTicketSucces(response.data));
 };
 
 // To get one ticket info

@@ -6,8 +6,10 @@ import Button from "react-bootstrap/Button";
 function TicketList(props) {
   console.log("what is props", props);
 
+  console.log("...............", props.eventId);
   return (
     <div>
+      //add filter eventId that checkt id before map
       {props.tickets &&
         props.tickets.length > 0 &&
         props.tickets.map(ticket => {
