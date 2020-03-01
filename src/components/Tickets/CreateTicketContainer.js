@@ -1,3 +1,5 @@
+//Not needed anymore, put it in the ticketlistcontainer etc
+
 // import React, { Component } from "react";
 // import { connect } from "react-redux";
 // import TicketForm from "./TicketForm";

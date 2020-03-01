@@ -9,9 +9,10 @@ class EventPage extends Component {
     return (
       <div>
         <h1>EVENT PAGE</h1>
-        <h2>Welcome! FIND EVENTS AND BUY/SELL TICKETS</h2>
+        <h2>FIND EVENTS AND FIND/SELL TICKETS</h2>
 
-        <p>Create EVENT</p>
+        <p>CREATE EVENT </p>
+        <p>(You have to be logged in to create an event)</p>
         <CreateEvent />
 
         <EventListContainer />

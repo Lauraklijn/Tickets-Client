@@ -7,9 +7,7 @@ export const FETCH_EVENT_SUCCESS = "FETCH_EVENT_SUCCESS";
 function eventsFetched(events) {
   return {
     type: EVENTS_FETCHED,
-    payload: {
-      events: events
-    }
+    payload: events
   };
 }
 

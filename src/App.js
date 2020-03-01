@@ -8,24 +8,33 @@ import EventPage from "../src/components/EventPage";
 import Login from "../src/components/Login";
 import TicketPage from "./components/Tickets/TicketPage";
 import TicketListContainer from "./components/Tickets/TicketListContainer";
-//import Home from "../src/components/Home";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
-          <nav>
-            <Link to="/">
-              <li>HOME</li>
-            </Link>
-            <Link to="/signup">
-              <li>Sign up!</li>
-            </Link>
-            <Link to="/login">
-              <li>Login</li>{" "}
-            </Link>
-          </nav>
+          <Navbar bg="dark" variant="dark">
+            <Navbar.Brand>Ticketplace</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/signup">Signup!</Nav.Link>
+              <Nav.Link href="/login">Login</Nav.Link>
+            </Nav>
+            <Form inline>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2"
+              />
+              <Button variant="outline-warning">Search</Button>
+            </Form>
+          </Navbar>
 
           <Route exact path="/" component={EventPage} />
           <Route exact path="/signup" component={SignupForm} />

@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: green;
 }
 
 .App-link {
@@ -39,4 +39,9 @@
 
 .homepage {
   background-image: url(https://images.unsplash.com/photo-1513265472937-50d3e680377c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }

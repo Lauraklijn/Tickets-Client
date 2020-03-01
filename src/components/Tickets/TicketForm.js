@@ -8,20 +8,22 @@ function TicketForm(props) {
   } = props;
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name</label>
-      <input onChange={handleChange} name="name" value={name} />
-      <label>Author</label>
-      <input onChange={handleChange} name="author" value={author} />
+    <div className="mt-5">
+      <form onSubmit={handleSubmit}>
+        <label>Name:</label>
+        <input onChange={handleChange} name="name" value={name} />
+        <label>Author:</label>
+        <input onChange={handleChange} name="author" value={author} />
 
-      <label>Description</label>
-      <input onChange={handleChange} name="description" value={description} />
-      <label>Image</label>
-      <input onChange={handleChange} name="image" value={image}></input>
-      <label>Price</label>
-      <input onChange={handleChange} name="price" value={price}></input>
-      <input type="submit" />
-    </form>
+        <label>Description:</label>
+        <input onChange={handleChange} name="description" value={description} />
+        <label>Image:</label>
+        <input onChange={handleChange} name="image" value={image}></input>
+        <label>Price:</label>
+        <input onChange={handleChange} name="price" value={price}></input>
+        <input type="submit" />
+      </form>
+    </div>
   );
 }
 
