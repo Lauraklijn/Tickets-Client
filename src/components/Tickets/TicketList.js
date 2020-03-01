@@ -1,20 +1,15 @@
 import React from "react";
-//import CreateTicketContainer from "../../components/Tickets/TicketListContainer";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 function TicketList(props) {
-  console.log("what is props", props);
-
-  console.log("...............", props.eventId);
   return (
     <div>
-      //add filter eventId that checkt id before map
       {props.tickets &&
         props.tickets.length > 0 &&
         props.tickets.map(ticket => {
           return (
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "18rem" }} key={ticket.id}>
               <Card.Body>
                 <Card.Title>{ticket.name}</Card.Title>
                 <Card.Text>
@@ -35,12 +30,5 @@ function TicketList(props) {
     </div>
   );
 }
-
-// <li key={ticket.id}>
-//   <a href={`http://localhost:3000/tickets/${ticket.id}`}>
-//     Name:{ticket.name}
-
-//   </a>
-// </li>
 
 export default TicketList;

@@ -5,8 +5,6 @@ import { loadTickets } from "../../tickets/ticket-action";
 import TicketForm from "./TicketForm";
 import { createTicket } from "../../tickets/ticket-action";
 
-//import { Link } from "react-router-dom";
-
 class TicketListContainer extends React.Component {
   state = {
     name: "",
@@ -16,11 +14,12 @@ class TicketListContainer extends React.Component {
     price: ""
   };
 
-  eventId = parseInt(this.props.location.pathname.split("/")[2]);
-
+  // Find tickets that maches Event Id, to only see the tickets of that event
   componentDidMount() {
     console.log("What is loadTickets?", loadTickets);
-    this.props.loadTickets();
+    if (this.props.match) {
+      this.props.loadTickets(this.props.match.params.id);
+    }
   }
 
   handleChange = event => {
@@ -29,10 +28,13 @@ class TicketListContainer extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("WHATTT IS THE state", this.props);
-    console.log("checking", this.props.location.pathname.split("/")[2]);
+    // console.log("WHATTT IS THE state", this.props);
+    // console.log(
+    //   "checking--------------------------",
+    //   this.props.location.pathname.split("/")[2]
+    // );
     const eventId = parseInt(this.props.location.pathname.split("/")[2]);
-    console.log("...............", eventId);
+    console.log("do you see eventId", eventId);
 
     this.props.createTicket(
       this.state.name,
@@ -42,7 +44,6 @@ class TicketListContainer extends React.Component {
       this.state.price,
       eventId
     );
-    //window.location.reload();
   };
 
   render() {
@@ -67,13 +68,6 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapStateToProps = state => ({
-//   event: state.eventData,
-
-//   loggedIn: !!state.auth
-// });
-
-// export default connect(mapStateToProps, { loadEvents })(EventDetailsContainer);
 export default connect(mapStateToProps, { loadTickets, createTicket })(
   TicketListContainer
 );

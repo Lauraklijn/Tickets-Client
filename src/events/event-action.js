@@ -30,8 +30,6 @@ function createEventSuccess(event) {
   };
 }
 
-// ---------- AUTH (Is not working yet) ------------- (Connection error), Still working on it
-
 export const createEvent = (name, description, imageUrl, date) => {
   //token(argument)
   return async function(dispatch, getState) {
@@ -54,7 +52,7 @@ export const createEvent = (name, description, imageUrl, date) => {
   };
 };
 
-// ONE event, niet nodig
+// ONE event, niet nodig (needed it for tickets)
 
 function fetchEventSucces(event) {
   return {

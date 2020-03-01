@@ -11,7 +11,7 @@ export default (state = initialState, action = {}) => {
     case TICKET_FETCHED:
       return [...action.payload.tickets];
     case TICKET_CREATE_SUCCESS:
-      console.log("what state, action, payload? ticket_create", ...state, [
+      console.log("what state, action, payload? ticket_create", [
         ...state,
         action.payload
       ]);
@@ -24,3 +24,5 @@ export default (state = initialState, action = {}) => {
       return state;
   }
 };
+
+// included new ticket in the tickets state with ...state instead of state. (deleded the 1 ...state, was there 2 times)

@@ -4,21 +4,18 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export default function EventList(props) {
-  let eventPath = "";
   return (
     <div>
       {props.events.map(event => {
         return (
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }} key={event.id}>
             <Card.Img variant="top" src={event.imageUrl} />
             <Card.Body>
               <Card.Title> {event.name}</Card.Title>
               <Card.Text>
                 <li>{event.description}</li> <li> {event.date}</li>
               </Card.Text>
-              {/* <a href={`http://localhost:3000/event/${event.id}`}> */}
-
-              <Link to={`/event/${event.id}`}>
+              <Link to={`/event/${event.id}/tickets`}>
                 <Button variant="primary" id={event.id}>
                   Find Tickets
                 </Button>

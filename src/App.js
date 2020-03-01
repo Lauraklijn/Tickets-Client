@@ -30,7 +30,11 @@ class App extends Component {
           <Route exact path="/" component={EventPage} />
           <Route exact path="/signup" component={SignupForm} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/event/:id" component={TicketListContainer} />
+          <Route
+            exact
+            path="/event/:id/tickets"
+            component={TicketListContainer}
+          />
           <Route exact path="/tickets/:id" component={TicketPage} />
         </Router>
       </div>

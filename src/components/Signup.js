@@ -70,10 +70,3 @@ class SignupForm extends Component {
 }
 
 export default connect()(SignupForm);
-
-// const mapStateToProps = state => {
-//   console.log("State for signup", state);
-//   return {
-//     userCreated: state.userdata.token
-//   };
-// };

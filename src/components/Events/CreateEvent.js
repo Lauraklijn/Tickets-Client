@@ -25,7 +25,6 @@ class CreateEventContainer extends Component {
         this.state.description,
         this.state.imageUrl,
         this.state.date
-        //this.props.user.token
       )
     );
   };
@@ -34,7 +33,7 @@ class CreateEventContainer extends Component {
     // console.log("what is events", this.state.events);
     // const eventList = this.state.events.map(event => {
     //   return <div key={event.id}>{event.name}</div>;
-    // });
+    // }); --> moved to eventList
 
     return (
       <div>
@@ -43,13 +42,9 @@ class CreateEventContainer extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-
-        {/* <h1>{eventList}</h1> */}
       </div>
     );
   }
 }
-
-//Maptodispatch (auth/token)
 
 export default connect()(CreateEventContainer);

@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import CreateEvent from "../components/Events/CreateEvent";
 import EventListContainer from "./Events/EventListContainer";
-import CreateTicketContainer from "./Tickets/CreateTicketContainer";
 
 class EventPage extends Component {
   render() {
@@ -14,8 +13,6 @@ class EventPage extends Component {
 
         <p>Create EVENT</p>
         <CreateEvent />
-        <p>CREATE TICKETS</p>
-        <CreateTicketContainer />
 
         <EventListContainer />
       </div>

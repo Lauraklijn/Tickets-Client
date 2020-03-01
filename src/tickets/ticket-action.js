@@ -13,10 +13,13 @@ function ticketFetched(tickets) {
   };
 }
 
-export const loadTickets = () => (dispatch, getState) => {
-  axios.get("http://localhost:5050/tickets").then(function(response) {
-    dispatch(ticketFetched(response.data));
-  });
+//Matched endpoint with server api (events/id/tickets), to see only the tickets from that event
+export const loadTickets = eventId => (dispatch, getState) => {
+  axios
+    .get(`http://localhost:5050/events/${eventId}/tickets`)
+    .then(function(response) {
+      dispatch(ticketFetched(response.data));
+    });
 };
 
 function createTicketSucces(ticket) {
@@ -39,8 +42,8 @@ export const createTicket = (
   eventId
 ) => async (dispatch, getState) => {
   const token = getState().userData.jwt;
-  console.log("WHAT IS TOKEN in create event??", token);
-  console.log("checking action ", eventId);
+  // console.log("What is token in create ticket??", token);
+  // console.log("checking action ", eventId);
 
   const response = await axios({
     method: "POST",
@@ -55,7 +58,7 @@ export const createTicket = (
       eventId
     }
   });
-  console.log("check ticket resp", response.data);
+  //console.log("check ticket response", response.data);
 
   dispatch(createTicketSucces(response.data));
 };
