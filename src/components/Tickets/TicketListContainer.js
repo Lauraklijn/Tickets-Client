@@ -55,7 +55,7 @@ class TicketListContainer extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
-        <TicketList tickets={this.props.tickets} eventId={this.eventId} />;
+        <TicketList tickets={this.props.tickets} eventId={this.eventId} />
       </div>
     );
   }

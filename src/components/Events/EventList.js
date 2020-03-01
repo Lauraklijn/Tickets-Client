@@ -22,7 +22,6 @@ export default function EventList(props) {
                     Tickets
                   </Button>
                 </Link>
-                {/* </a> */}
               </Card.Body>
             </Card>
           );
@@ -31,6 +30,3 @@ export default function EventList(props) {
     </div>
   );
 }
-
-// Where to put key?
-// <li key={event.id}> </li>

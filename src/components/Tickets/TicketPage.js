@@ -12,8 +12,8 @@ class TicketPage extends React.Component {
 
   render() {
     return (
-      <div class="d-flex justify-content-center">
-        <Card className="mt-3" border="dark" style={{ width: "30rem" }}>
+      <div className="d-flex justify-content-center">
+        <Card className="mt-5" border="dark" style={{ width: "30rem" }}>
           <Card.Img variant="top" src={this.props.ticket.image} />
 
           <Card.Header border="dark">{this.props.ticket.name}</Card.Header>
@@ -40,31 +40,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { TicketDetails })(TicketPage);
-
-// <div>
-// <h1>RISK is {this.props.ticket.risk}%</h1>
-// <li> Name: {this.props.ticket.name} </li>
-// <li> Author: {this.props.ticket.author}</li>
-// <li> Description: {this.props.ticket.description}</li>
-// <li> € {this.props.ticket.price} </li>
-// <li> Image: {this.props.ticket.image} </li>
-// <li> Risk:{this.props.ticket.totalRisk}</li>
-// </div>
-
-{
-  /* <Card style={{ width: "18rem" }}>
-<Card.Img variant="top" src={this.props.ticket.image} />
-<Card.Body>
-  <Card.Title>{this.props.ticket.name}</Card.Title>
-  <Card.Text>
-    <li>{this.props.ticket.description}</li>
-    <li> € {this.props.ticket.price} </li>
-    <li> Risk:{this.props.ticket.totalRisk}</li>
-  </Card.Text>
-  <Button variant="primary">BUY</Button>
-  <Card.Footer className="text-muted">
-    Author: {this.props.ticket.author}
-  </Card.Footer>
-</Card.Body>
-</Card> */
-}

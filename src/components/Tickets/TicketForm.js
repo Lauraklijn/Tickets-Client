@@ -9,6 +9,7 @@ function TicketForm(props) {
 
   return (
     <div className="mt-5">
+      <h3> Create ticket </h3>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
         <input onChange={handleChange} name="name" value={name} />
